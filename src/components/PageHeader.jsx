@@ -17,9 +17,8 @@ export function PageHeader(){
                             </li>
                         </ol>
                     </nav>
-                    <h1 className="page-header-title">
-                        {pathname.split('/')[1] !== "" ? 
-                        __(pathname.split('/')[1]) : 'Tableau de board'}
+                    <h1 className="pange-header-title"> {pathname.split('/')[1] !== "" ? 
+                        __(pathname.split('/')[1]) : 'Annuaire'}
                     </h1>
                 </div>
                 <div className="col-sm-auto">                

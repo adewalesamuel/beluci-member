@@ -1,69 +1,21 @@
 //'use client'
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Services } from '../services';
-import { Components } from '../components';
+import { Components } from '../components'
+import placeholderImg from '../assets/img/400x400/img2.jpg';
 
 export function MemberListView() {
     let abortController = new AbortController();
 
     const { MemberService } = Services;
-
-    const tableAttributes = {
-        'logo_url': {},
-		'company_name': {},
-		'country_name': {},
-		'head_office': {},
-		'address': {},
-		'website_url': {},
-		'fullname': {},
-		'creation_date': {},
-		'employee_number': {},
-		'legal_status': {},
-		'share_capital': {},
-		'sector': {},
-		'company_category': {},
-		'representative_fullname': {},
-		'position': {},
-		'nationality': {},
-		'email': {},
-		'phone_number': {},
-		'sales_representative_fullname': {},
-		'sales_representative_position': {},
-		'sales_representative_email': {},
-		'sales_representative_phone_number': {},
-		'photo_url': {},
-		
-    }
-    const tableActions = ['edit'];
     
-    const navigate = useNavigate();
     const [searchParams] = useSearchParams();
 
     const [members, setMembers] = useState([]);
     const [page, setPage] = useState(1);
     const [pageLength, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
-
-    const handleEditClick = (e, data) => {
-        e.preventDefault();
-        navigate(`/members/${data.id}/edit`);
-    }
-    const handleDeleteClick = async (e, member) => {
-        e.preventDefault();
-
-        if (confirm('Voulez vous vraiment supprimer ce member')) {
-            const membersCopy = [...members];
-            const index = membersCopy.findIndex(memberItem => 
-                memberItem.id === member.id);
-
-            membersCopy.splice(index, 1);
-            setMembers(membersCopy);
-
-            await MemberService.destroy(member.id, 
-                abortController.signal);
-        }
-    }
 
     const init = useCallback(async () => {
         try {
@@ -108,14 +60,44 @@ export function MemberListView() {
 
     return (
         <>
-            <h4>Liste des Members</h4>
-            <Components.Loader isLoading={isLoading}>
-                <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
-                tableAttributes={tableAttributes} tableActions={tableActions} 
-                tableData={members}/>
-
-                <Components.Pagination pageLength={pageLength} page={parseInt(page)} />
-            </Components.Loader>
+            <h4>Liste des Membres</h4>
+            <section className='p-4 bg-light'>
+                <div className='container my-3'>
+                    <Components.Loader isLoading={isLoading}>
+                        <ul className='mt-4 list-unstyled row align-items-stretch'>
+                            {members.map((member, index) => {
+                                return (
+                                    <li key={index} className='col-12 col-md-6 p-3'>
+                                        <div className='card d-flex- flex-row flex-wrap align-items-start h-100
+                                        position-relative'>
+                                            <div className='col-4 px-0'>
+                                                <img src={member.photo_url} className='img-fluid' 
+                                                onError={e => e.currentTarget.src=placeholderImg}/>
+                                            </div>
+                                            <div className='card-body col-8'>
+                                                <h5>{member.company_name}</h5>
+                                                <div className='d-flex flex-column'>
+                                                    <span className='text-sector'>{member.sector}</span>
+                                                    <address className='mb-0'>{member.address}</address>
+                                                    <span>{member.email}</span>
+                                                    <span>{member.representative_fullname}</span>
+                                                    <strong className='text-primary'>{member.phone_number}</strong>
+                                                    <span>{member.other_details}</span>
+                                                    <span className='text-primary'>{member.website_url}</span>
+                                                </div>
+                                                <Link to={`/members/${member.id}`} className='btn btn-sm btn-warning mt-4'>
+                                                    Voir plus
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                        <Components.Pagination pageLength={pageLength} page={parseInt(page)} />
+                    </Components.Loader>
+                </div>
+            </section>
         </>
     )
 }

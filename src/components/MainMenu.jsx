@@ -38,9 +38,9 @@ export function MainMenu() {
                             <small className="bi-three-dots nav-subtitle-replacer"></small>
                             <div id="navbarVerticalMenuPagesMenu">
                                 <div className="nav-item">
-                                    <NavLink className="nav-link" to="/members">
+                                    <NavLink className="nav-link" to="/">
                                         <IconEvent size={18} className='nav-icon'/>
-                                        <span className="nav-link-title">Membres</span>
+                                        <span className="nav-link-title">Annuaire</span>
                                     </NavLink>
                                 </div>
                                 <div className="nav-item">

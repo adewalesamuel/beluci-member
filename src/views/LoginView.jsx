@@ -30,7 +30,7 @@ export function LoginView() {
 
             setSessionToken(token);
             setUser(user);
-            navigate('/');
+            navigate('/membres');
         } catch(error) {
             if ('message' in error) setErrorMessages([error.message]);
             if (!('messages' in error)) return;
