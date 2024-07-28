@@ -17,12 +17,11 @@ export function MemberEditView() {
 
     const handleFormSubmit = async e => {
         e.preventDefault();
-
+        useMember.setIsDisabled(true);
         setErrorMessages([]);
         
         try {
-            await useMember.updateMember(
-            	id, abortController.signal);
+            await useMember.updateProfile(abortController.signal);
         } catch (error) {
             if ('message' in error) setErrorMessages([error.message]);
             if (!('messages' in error)) return;
@@ -39,7 +38,7 @@ export function MemberEditView() {
         useMember.setIsDisabled(true);
 
         try {
-            await useMember.getMember(id, abortController.signal);
+            await useMember.getProfile(id, abortController.signal);
             
             // const { members } = await Services.MemberService
 			// .getAll(abortController.signal);

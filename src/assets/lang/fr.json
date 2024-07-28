@@ -37,7 +37,7 @@
     "menu_item_id": "Menu parent",
     "menu_id": "Groupe Menu",
     "keywords": "Mots cles",
-    "display_img_url": "Display img url",
+    "display_img_url": "Image principale",
     "section_list": "Section liste",
     "date": "Date",
     "time": "Heure",
@@ -73,5 +73,6 @@
     "member_id": "Id membre",
     "content": "Contenu",
     "excerpt": "Extrait",
-    "author": "Auteur"
+    "author": "Auteur",
+    "forum_category_id": "Category"
 }

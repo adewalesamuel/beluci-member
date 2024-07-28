@@ -47,6 +47,16 @@ export const useMember = () => {
         });
     }
 
+	const getProfile = (memberId, signal) => {        
+        return Services.MemberService.profile(signal)
+        .then(response => {
+            fillMember(response.member);
+            setIsDisabled(false);
+
+            return response;
+        });
+    }
+
     const createMember = signal => {
         const payload = {
             logo_url,
@@ -122,6 +132,43 @@ export const useMember = () => {
 
         return Services.MemberService.update(
         	memberId, JSON.stringify(payload), signal);
+    }
+
+	const updateProfile = (signal) => {
+        const payload = {
+            logo_url,
+		company_name,
+		country_name,
+		head_office,
+		address,
+		website_url,
+		fullname,
+		creation_date,
+		employee_number,
+		legal_status,
+		share_capital,
+		sector,
+		other_details,
+		company_category,
+		representative_fullname,
+		position,
+		nationality,
+		email,
+		phone_number,
+		sales_representative_fullname,
+		sales_representative_position,
+		sales_representative_email,
+		sales_representative_phone_number,
+		cover_letter_url,
+		photo_url,
+		commercial_register_url,
+		idcard_url,
+		is_validated,
+		password,
+		
+        };
+
+        return Services.MemberService.profileUpdate(JSON.stringify(payload), signal);
     }
     const deleteMember = (memberId, signal) => {
         return Services.MemberService.destroy(memberId, signal);
@@ -265,8 +312,10 @@ export const useMember = () => {
         setErrors,
         setIsDisabled,
         getMember,
+		getProfile,
         createMember,
         updateMember,
+		updateProfile,
         deleteMember,
         fillMember,
         emptyMember

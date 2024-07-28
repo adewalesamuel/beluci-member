@@ -17,6 +17,15 @@ const create = (payload, signal) => {
 const update = (id, payload, signal) => {
     return Api.put(`${ENDPOINT}/${id}`, payload, signal)
 }
+
+const profileUpdate = (payload, signal) => {
+    return Api.put(`/profile`, payload, signal)
+}
+
+const profile = (signal) => {
+    return Api.get(`/profile`, signal)
+}
+
 const destroy = (id, signal) => {
     return Api.erase(`${ENDPOINT}/${id}`, signal)
 }
@@ -26,6 +35,8 @@ export const MemberService = {
     getAll,
     getById,
     create,
+    profile,
+    profileUpdate,
     update,
     destroy
 }
