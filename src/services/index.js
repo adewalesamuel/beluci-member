@@ -12,6 +12,9 @@ import { PostService } from './PostService';
 import { AuthService } from './AuthService';
 import { FileService } from './FileService';
 import { GalleryTypeService } from './GalleryTypeService';
+import { ForumService } from './ForumService';
+import { ForumCategoryService } from './ForumCategoryService';
+import { MessageService } from './MessageService';
 
 export const Services = {
     PermissionService,
@@ -27,6 +30,8 @@ export const Services = {
 	PostService,
 	AuthService,
 	FileService,
-	GalleryTypeService
-	
+	GalleryTypeService,
+	ForumService,
+	ForumCategoryService,
+	MessageService,
 }

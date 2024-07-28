@@ -1,6 +1,10 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.jpg'
-import { FiCalendar as IconEvent, FiUsers as IconUsers } from 'react-icons/fi';
+import { 
+    FiBook as IconBook,
+    FiCalendar as IconEvent, 
+    FiUsers as IconUsers, 
+    FiMessageSquare as IconForum } from 'react-icons/fi';
 import { TbLogout } from 'react-icons/tb';
 import { Services } from '../services';
 import { Utils } from '../utils';
@@ -39,7 +43,7 @@ export function MainMenu() {
                             <div id="navbarVerticalMenuPagesMenu">
                                 <div className="nav-item">
                                     <NavLink className="nav-link" to="/">
-                                        <IconEvent size={18} className='nav-icon'/>
+                                        <IconBook size={18} className='nav-icon'/>
                                         <span className="nav-link-title">Annuaire</span>
                                     </NavLink>
                                 </div>
@@ -47,6 +51,12 @@ export function MainMenu() {
                                     <NavLink className="nav-link" to="/events">
                                         <IconEvent size={18} className='nav-icon'/>
                                         <span className="nav-link-title">Evènements</span>
+                                    </NavLink>
+                                </div>
+                                <div className="nav-item">
+                                    <NavLink className="nav-link" to="/forums">
+                                        <IconForum size={18} className='nav-icon'/>
+                                        <span className="nav-link-title">Forums</span>
                                     </NavLink>
                                 </div>
                                 <div className="nav-item">

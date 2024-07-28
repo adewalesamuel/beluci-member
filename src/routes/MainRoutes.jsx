@@ -10,6 +10,9 @@ export function MainRoutes() {
                 <Route path='events' element={<Views.EventListView />} />
                 <Route path='mon-profil' element={<Views.MemberEditView />} />
                 <Route path='galleries/:id' element={<Views.GalleryListView />} />
+                <Route path='forums' element={<Views.ForumCategoryListView />} />
+                <Route path='forums/:id/messages' element={<Views.MessageListView />} />
+                <Route path='forums/create' element={<Views.ForumCreateView />} />
             </Routes>
         </Layouts.MainLayout>
     )

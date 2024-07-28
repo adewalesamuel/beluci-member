@@ -13,9 +13,9 @@ export function Table(props) {
     const {handleEditClick, handleReadClick, handleDeleteClick} = controllers;
         
     const renderReadButton = data => (
-        <button className="btn btn-sm btn-danger" 
+        <button className="btn btn-link btn-sm" 
         onClick={e => handleReadClick(e, data)} key={Math.random()}> 
-            Voir 
+            <ReadIcon/> Voir le forum 
         </button>
         );
 
@@ -59,7 +59,7 @@ export function Table(props) {
 
     const renderTableActionCell = data => {
         return (
-            <td className="table-report__action w-56" key={Math.random()}>
+            <td className="table-report__action w-56 text-center" key={Math.random()}>
                 {tableActions.map((action) => {
                     switch (action) {
                         case ACTIONS.EDIT:
@@ -90,12 +90,13 @@ export function Table(props) {
     }
 
     return (
-        <div className='table-responsive mt-5'>
-            <table className="table table-bor table-thead-bordered 
-            table-nowrap table-align-middle card-table table-hover">
-                <thead className="thead-light">
-                    <tr>{renderTableHeads()}</tr>
-                </thead>
+        <div className='table-responsive'>
+            <table className="table table-bordered border-1 table-hover table-striped">
+                {!props.canShowHeader || props.canShowHeader === false &&
+                    <thead className="thead-light">
+                        <tr>{renderTableHeads()}</tr>
+                    </thead>
+                }
                 <tbody>
                     {tableData.map((rowData, index) => renderTableRow(rowData, index))}
                 </tbody>
@@ -103,4 +104,4 @@ export function Table(props) {
         </div>
 
     )
-}
+}           

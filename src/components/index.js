@@ -23,6 +23,7 @@ import { GalleryTypeForm } from './forms/GalleryTypeForm';
 import { Modal } from './Modal';
 import { EventListSection } from './EventListSection';
 import { EventItem } from './EventItem';
+import { ForumForm } from './forms/ForumForm';
 
 export const Components = {
     Loader,
@@ -50,4 +51,5 @@ export const Components = {
 	Modal,
 	EventListSection,
 	EventItem,
+	ForumForm,
 }
