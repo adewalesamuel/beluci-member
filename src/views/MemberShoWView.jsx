@@ -4,12 +4,13 @@ import { Hooks } from '../hooks';
 import { Utils } from '../utils';
 import placeholderImg from '../assets/img/400x400/img2.jpg';
 import { AiOutlineDownload } from 'react-icons/ai';
+import { useParams } from 'react-router-dom';
 
 export function MemberShowView() {
     let abortController = new AbortController();
     const {__} = Utils.String;
 
-    const {id} = Utils.Auth.getUser();
+    const {id} = useParams();
 
     const useMember = Hooks.useMember();
 
@@ -17,7 +18,7 @@ export function MemberShowView() {
         useMember.setIsDisabled(true);
 
         try {
-            await useMember.getProfile(id, abortController.signal);
+            await useMember.getMember(id, abortController.signal);
         } catch (error) {
             console.log(error);
         } finally{
