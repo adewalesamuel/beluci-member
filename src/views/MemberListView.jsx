@@ -22,10 +22,6 @@ export function MemberListView() {
             const {members} = await MemberService.getAll(
                 {page: page}, abortController.signal);
             const memeberData = members.data.map(member => {
-                member['logo_url'] = (<img src={member.logo_url} 
-                    className="rounded" width={50}/>);
-                member['photo_url'] = (<img src={member.photo_url} 
-                    className="rounded" width={50}/>);
                 member['company_name'] = (<Link to={`/members/${member.id}`}>
                     {member.company_name}</Link>);
                 member['website_url'] = (<a href={member.website_url} 
@@ -71,7 +67,7 @@ export function MemberListView() {
                                         <div className='card d-flex- flex-row flex-wrap align-items-start h-100
                                         position-relative'>
                                             <div className='col-4 px-0'>
-                                                <img src={member.photo_url} className='img-fluid' 
+                                                <img src={member.logo_url} className='img-fluid' 
                                                 onError={e => e.currentTarget.src=placeholderImg}/>
                                             </div>
                                             <div className='card-body col-8'>

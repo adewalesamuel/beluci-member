@@ -50,7 +50,10 @@ export function GalleryListView() {
 
     return (
         <>
-            <h4>{useEvent.name} : Gallerie</h4>
+            <div className='col-12 col-md-6'>
+                <h4>{useEvent.name} : Gallerie</h4>
+                <p>{useEvent.description}</p>
+            </div>
             <Components.Loader isLoading={isLoading}>
                 <section className="py-4">
                     <div className="container">
