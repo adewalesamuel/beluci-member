@@ -9,6 +9,7 @@ import { ForumCategoryListView } from "./ForumCategoryListView";
 import { ForumEditView } from "./ForumEditView";
 import { ForumCreateView } from "./ForumCreateView";
 import { MessageListView } from './MessageListView';
+import { MemberShowView } from './MemberShoWView';
 
 export const Views = {
 	EventListView,
@@ -22,4 +23,5 @@ export const Views = {
 	ForumEditView,
 	ForumCreateView,
 	MessageListView,
+	MemberShowView,
 }

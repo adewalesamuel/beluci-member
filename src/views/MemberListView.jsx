@@ -26,7 +26,7 @@ export function MemberListView() {
                     className="rounded" width={50}/>);
                 member['photo_url'] = (<img src={member.photo_url} 
                     className="rounded" width={50}/>);
-                member['company_name'] = (<Link to={`/members/${member.id}/edit`}>
+                member['company_name'] = (<Link to={`/members/${member.id}`}>
                     {member.company_name}</Link>);
                 member['website_url'] = (<a href={member.website_url} 
                     target="_blank">{member.website_url}</a>);

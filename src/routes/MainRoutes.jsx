@@ -7,7 +7,7 @@ export function MainRoutes() {
         <Layouts.MainLayout>
             <Routes>
                 <Route path='' element={<Views.MemberListView />} />
-                <Route path='members/:id' element={<Views.MemberEditView />} />
+                <Route path='members/:id' element={<Views.MemberShowView />} />
                 <Route path='events' element={<Views.EventListView />} />
                 <Route path='mon-profil' element={<Views.MemberEditView />} />
                 <Route path='galleries/:id' element={<Views.GalleryListView />} />
