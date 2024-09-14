@@ -107,8 +107,8 @@ export function MemberListView() {
                                                     <span>{member.representative_fullname}</span>
                                                     <strong className='text-primary'>{member.phone_number}</strong>
                                                     <span>{member.other_details}</span>
-                                                    <a className='btn btn-link' href={member.website_url.replace('www.', 'https://')} 
-                                                    target='_blank'>
+                                                    <a className='btn btn-link' href={member?.website_url?.
+                                                    replace('www.', 'https://') ?? ''} target='_blank'>
                                                         {member.website_url}
                                                     </a>
                                                 </div>
