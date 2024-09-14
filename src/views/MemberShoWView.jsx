@@ -1,10 +1,14 @@
 //'use client'
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Hooks } from '../hooks';
 import { Utils } from '../utils';
 import placeholderImg from '../assets/img/400x400/img2.jpg';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
+import { BsEnvelope } from 'react-icons/bs';
+import { Services } from '../services';
+import { Components } from '../components';
+import { useError } from '../hooks/useError';
 
 export function MemberShowView() {
     let abortController = new AbortController();
@@ -12,7 +16,37 @@ export function MemberShowView() {
 
     const {id} = useParams();
 
+    const errorHandler = useError();
     const useMember = Hooks.useMember();
+
+    const [isModelOpen, setIsModelOpen] = useState(false);
+    const [message, setMessage] = useState('');
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const handleMessageSubmit = async e => {
+        e.preventDefault();
+        setIsDisabled(true);
+        errorHandler.setErrorMessages([]);
+
+        try {
+            const payload = {
+                message,
+                fullname: Utils.Auth.getUser().company_name ?? '',
+                email: useMember.email,
+            }
+
+            await Services.ContactService.create(
+                JSON.stringify(payload), abortController.signal);
+
+            alert('Votre message a bien été envoyé!');
+            setIsModelOpen(false);
+            
+        } catch (error) {
+            errorHandler.setError(error);
+        } finally {
+            setIsDisabled(false);
+        }
+    }
 
     const init = useCallback(async () => {
         useMember.setIsDisabled(true);
@@ -33,6 +67,11 @@ export function MemberShowView() {
     return (
         <>
             <h3>Details du membre</h3>
+            <div className='my-3 d-flex justify-content-end'>
+                <button className="btn btn-primary" onClick={() => setIsModelOpen(true)}>
+                    <BsEnvelope size={17} /> Envoyer un message
+                </button>
+            </div>
             <div className='row'>
                 <div className='col-md-6 col-12'>
                     <div className='card mb-3'>
@@ -208,6 +247,29 @@ export function MemberShowView() {
                     </div>
                 </div>
             </div>
+            {isModelOpen && 
+                <Components.Modal isControlVisible={true} isDisabled={isDisabled}
+                title={`Envoyer un message a ${useMember.company_name}`}
+                handleModalClose={( () => setIsModelOpen(false))}
+                handleModalValidate={handleMessageSubmit}>
+                    <form>
+                        <Components.ErrorMessages>
+                            {errorHandler.errorMessages}
+                        </Components.ErrorMessages>
+                        <div className="row">
+                            <div className='col-12'>
+                                <div className='form-group mb-2'>
+                                    <label htmlFor='message'>{__('message')}</label>
+                                    <textarea className='form-control' type='text' id='message' 
+                                    name='message' placeholder={__('message')} value={message ?? ''}
+                                    disabled={isDisabled} required onChange={ e => 
+                                        setMessage(e.target.value) ?? null} rows={5}></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </Components.Modal>
+            }
         </>
     )
 }

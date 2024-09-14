@@ -151,14 +151,11 @@ const getResponseErrors = response => {
         
         response.json().then(result => {
             let errorMessages = [];
-
-            if (!result.errors || result?.errors?.length < 1) {
-                errorMessages.push(result.message);
-            } else {
-                for (let error in result.errors) 
-                    errorMessages.push(result.errors[error]);
-            }
+            
+            errorMessages.push(result.message);
     
+            for (let error in result.errors) 
+                errorMessages.push(result.errors[error]);
 
             resolve(errorMessages);
         });    

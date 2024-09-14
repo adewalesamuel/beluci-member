@@ -9,7 +9,7 @@ import { ForumCategoryListView } from "./ForumCategoryListView";
 import { ForumEditView } from "./ForumEditView";
 import { ForumCreateView } from "./ForumCreateView";
 import { MessageListView } from './MessageListView';
-import { MemberShowView } from './MemberShoWView';
+import { MemberShowView } from './MemberShowView';
 
 export const Views = {
 	EventListView,
