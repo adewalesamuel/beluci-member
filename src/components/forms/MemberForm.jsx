@@ -227,6 +227,16 @@ export function MemberForm(props) {
                         </div>
                     </div>
                     <div className='col-12'>
+                        <div className='form-group'>
+                            <label htmlFor='sales_representative_nationality'>{__('sales_representative_nationality')}</label>
+                            <input className='form-control' type='text' id='sales_representative_nationality' 
+                            name='sales_representative_nationality' placeholder={__('sales_representative_nationality')} 
+                            value={props.useMember.sales_representative_nationality ?? ''}
+                            disabled={props.isDisabled} onChange={ e => 
+                                props.useMember.setSales_representative_nationality(e.target.value) ?? null}/>
+                        </div>
+                    </div>
+                    <div className='col-12'>
                         <div className='form-group mb-2'>
                             <label htmlFor='cover_letter_url'>{__('cover_letter_url')}</label>
                             {props.useMember.cover_letter_url && 

@@ -65,6 +65,7 @@
     "sales_representative_position": "Position du representant commercial",
     "sales_representative_email": "Email du representant commercial",
     "sales_representative_phone_number": "Numero de telephone du representant commercial",
+    "sales_representative_nationality": "Nationalité du representant commercial",
     "cover_letter_url": "Fichier de la lettre de couverture",
     "photo_url": "Fichier photo",
     "commercial_register_url": "Fichier du registre commercial",
@@ -74,5 +75,6 @@
     "content": "Contenu",
     "excerpt": "Extrait",
     "author": "Auteur",
-    "forum_category_id": "Category"
+    "forum_category_id": "Category",
+    "member_source": "Comment avez-vous connu la BELUCI ?"
 }

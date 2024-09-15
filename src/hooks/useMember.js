@@ -33,6 +33,8 @@ export const useMember = () => {
 	const [password, setPassword] = useState('');
 	const [is_validated, setIs_validated] = useState(false);
 	const [member_id, setMember_id] = useState('');
+	const [member_source, setMember_source] = useState('');
+	const [sales_representative_nationality, setSales_representative_nationality] = useState('');
 	
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
@@ -89,6 +91,8 @@ export const useMember = () => {
 		is_validated,
 		password,
 		member_id,
+		member_source,
+		sales_representative_nationality,
 		
         };
 
@@ -127,6 +131,8 @@ export const useMember = () => {
 		is_validated,
 		password,
 		member_id,
+		member_source,
+		sales_representative_nationality
 		
         };
 
@@ -205,6 +211,8 @@ export const useMember = () => {
 		setPassword(member.password ?? '');
 		setMember_id(member.member_id ?? '');
 		setIs_validated(member.is_validated ?? false);
+		setMember_source(member.member_source ?? '');
+		setSales_representative_nationality(member.sales_representative_nationality ?? '');
 		
     }
     const emptyMember = () => {
@@ -239,7 +247,8 @@ export const useMember = () => {
 		setPassword('');
 		setMember_id('');
 		setIs_validated('');
-		
+		setMember_source('');
+		setSales_representative_nationality('');
     }
 
     return {
@@ -274,6 +283,8 @@ export const useMember = () => {
 		password,
 		is_validated,
 		member_id,
+		member_source,
+		sales_representative_nationality,
 		
         errors,
         isDisabled,
@@ -307,6 +318,8 @@ export const useMember = () => {
 		setPassword,
 		setMember_id,
 		setIs_validated,
+		setMember_source,
+		setSales_representative_nationality,
 		
         setId,
         setErrors,

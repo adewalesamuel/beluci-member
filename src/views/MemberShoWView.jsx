@@ -106,6 +106,10 @@ export function MemberShowView() {
                                     <strong>{__('website_url')}</strong>
                                     <p>{useMember.website_url}</p>
                                 </li>
+                                <li>
+                                    <strong>{__('member_source')}</strong>
+                                    <p>{useMember.member_source}</p>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -202,6 +206,10 @@ export function MemberShowView() {
                                 <li>
                                     <strong>{__('sales_representative_phone_number')}</strong>
                                     <p>{useMember.sales_representative_phone_number}</p>
+                                </li>
+                                <li>
+                                    <strong>{__('sales_representative_nationality')}</strong>
+                                    <p>{useMember.sales_representative_nationality}</p>
                                 </li>
                             </ul>
                         </div>
