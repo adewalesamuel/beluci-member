@@ -85,13 +85,13 @@ export function MemberListView() {
                     </form>
                 </div>
             </div>
-            <section className='p-4 bg-light'>
+            <section>
                 <div className='container my-3'>
                     <Components.Loader isLoading={isLoading}>
                         <ul className='mt-4 list-unstyled row align-items-stretch'>
                             {members.map((member, index) => {
                                 return (
-                                    <li key={index} className='col-12 col-md-6 p-3'>
+                                    <li key={index} className='col-12 p-2'>
                                         <div className='card d-flex- flex-row flex-wrap align-items-start h-100
                                         position-relative'>
                                             <div className='col-4 px-0'>
@@ -100,7 +100,7 @@ export function MemberListView() {
                                             </div>
                                             <div className='card-body col-8'>
                                                 <h5>{member.company_name}</h5>
-                                                <div className='d-flex flex-column align-items-start'>
+                                                <div className='d-flex flex-column align-items-start text-break'>
                                                     <span className='text-sector'>{member.sector}</span>
                                                     <address className='mb-0'>{member.address}</address>
                                                     <span>{member.email}</span>
@@ -112,8 +112,8 @@ export function MemberListView() {
                                                         {member.website_url}
                                                     </a>
                                                 </div>
-                                                <Link to={`/members/${member.id}`} className='btn btn-sm btn-warning mt-4'>
-                                                    Voir plus
+                                                <Link to={`/members/${member.id}`} className='btn btn-sm btn-primary mt-4'>
+                                                    en savoir plus
                                                 </Link>
                                             </div>
                                         </div>

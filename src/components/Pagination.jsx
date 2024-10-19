@@ -6,7 +6,7 @@ import { FiChevronLeft as IconLeft,
 export function Pagination(props){
 
     return(
-        <div className="pagination-wrapper">
+        <div className="pagination-wrapper overflow-scroll">
             <ul className="pagination pagination-circle mg-b-0">
                 <li className="page-item">
                     <Link className="page-link" to={`?page=${props.page > 1 ? 

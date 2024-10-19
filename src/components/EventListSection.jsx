@@ -49,10 +49,10 @@ export function EventListSection() {
         <section className="bg-light py-2" id="eventList">
             <div className="container py-3">
                 <Components.Loader isLoading={isLoading}>
-                    <div className='row'>
+                    <div className='row mb-3'>
                         {events.map((event, index) => {
                             return (
-                                <div className='col-12 col-md-6 p-4' key={index}>
+                                <div className='col-12 col-md-6 col-lg-4' key={index}>
                                     <Components.EventItem event={event}/>
                                 </div>
                             )
