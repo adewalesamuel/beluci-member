@@ -2,13 +2,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Hooks } from '../hooks';
 import { Utils } from '../utils';
-import placeholderImg from '../assets/img/400x400/img2.jpg';
-import { AiOutlineDownload } from 'react-icons/ai';
 import { Components } from '../components';
 
 export function MemberEditView() {
     let abortController = new AbortController();
-    const {__} = Utils.String;
 
     const {id} = Utils.Auth.getUser();
 
@@ -53,7 +50,6 @@ export function MemberEditView() {
 
     return (
         <>
-            <h3>Mon profil</h3>
             <Components.ErrorMessages>
                 {errorMessages}
             </Components.ErrorMessages>

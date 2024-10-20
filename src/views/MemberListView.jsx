@@ -70,7 +70,6 @@ export function MemberListView() {
 
     return (
         <>
-            <h4>Liste des Membres</h4>
             <div className='row justify-content-end'>
                 <div className='col-12 col-md-4'>
                     <form onSubmit={handleSearchSubmit}>
