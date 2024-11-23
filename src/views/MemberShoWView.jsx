@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Hooks } from '../hooks';
 import { Utils } from '../utils';
 import placeholderImg from '../assets/img/400x400/img2.jpg';
-import { AiOutlineDownload } from 'react-icons/ai';
+// import { AiOutlineDownload } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
 import { BsEnvelope } from 'react-icons/bs';
 import { Services } from '../services';
@@ -106,10 +106,10 @@ export function MemberShowView() {
                                     <strong>{__('website_url')}</strong>
                                     <p>{useMember.website_url}</p>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <strong>{__('member_source')}</strong>
                                     <p>{useMember.member_source}</p>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
@@ -121,9 +121,13 @@ export function MemberShowView() {
                             <ul className='m-0 p-0 list-unstyled'>
                                 <li>
                                     <strong>{__('creation_date')}</strong>
-                                    <p>{useMember.creation_date}</p>
+                                    <p>
+                                        {useMember.creation_date ? 
+                                            new Date(useMember.creation_date).getFullYear()
+                                        : null}
+                                    </p>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <strong>{__('employee_number')}</strong>
                                     <p>{useMember.employee_number}</p>
                                 </li>
@@ -134,7 +138,7 @@ export function MemberShowView() {
                                 <li>
                                     <strong>{__('share_capital')}</strong>
                                     <p>{useMember.share_capital}</p>
-                                </li>
+                                </li> */}
                                 <li>
                                     <strong>{__('sector')}</strong>
                                     <p>{useMember.sector}</p>
@@ -143,10 +147,10 @@ export function MemberShowView() {
                                     <strong>{__('other_details')}</strong>
                                     <p>{useMember.other_details}</p>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <strong>{__('company_category')}</strong>
                                     <p>{useMember.company_category}</p>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
@@ -170,10 +174,10 @@ export function MemberShowView() {
                                     <strong>{__('position')}</strong>
                                     <p>{useMember.position}</p>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <strong>{__('nationality')}</strong>
                                     <p>{useMember.nationality}</p>
-                                </li>
+                                </li> */}
                                 <li>
                                     <strong>{__('email')}</strong>
                                     <p>{useMember.email}</p>
@@ -185,7 +189,7 @@ export function MemberShowView() {
                             </ul>
                         </div>
                     </div>
-                    <div className='card mb-3'>
+                    {/* <div className='card mb-3'>
                         <div className='card-header bg-soft-info'>
                             <h3 className='m-0 p-0 text-info'>Représentant commercial</h3>
                         </div>
@@ -213,14 +217,14 @@ export function MemberShowView() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                     <div className='card mb-3'>
                         <div className='card-header bg-soft-info'>
                             <h3 className='m-0 p-0 text-info'>Documents et Photos</h3>
                         </div>
                         <div className='card-body'>
                             <ul className='m-0 p-0 list-unstyled'>
-                                <li>
+                                {/* <li>
                                     <strong>{__('cover_letter_url')}</strong>
                                     <br />
                                     <a href={useMember.cover_letter_url} target='_blank' 
@@ -228,14 +232,14 @@ export function MemberShowView() {
                                         <AiOutlineDownload size={15} className='me-2'/>
                                         Télécharger
                                     </a>
-                                </li>
+                                </li> */}
                                 <li>
                                     <strong>{__('photo_url')}</strong>
                                     <img src={useMember.photo_url ?? ''} className="img-fluid rounded mb-3 d-block" 
                                     width={100} onError={e => e.currentTarget.src = placeholderImg} 
                                     style={{objectFit: 'cover'}}/>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <strong>{__('commercial_register_url')}</strong>
                                     <br />
                                     <a href={useMember.commercial_register_url} target='_blank' 
@@ -243,13 +247,13 @@ export function MemberShowView() {
                                         <AiOutlineDownload size={15} className='me-2'/>
                                         Télécharger
                                     </a>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                     <strong>{__('idcard_url')}</strong>
                                     <img src={useMember.photo_url ?? ''} className="img-fluid rounded mb-3 d-block" 
                                     width={100} onError={e => e.currentTarget.src = placeholderImg} 
                                     style={{objectFit: 'cover'}}/>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
