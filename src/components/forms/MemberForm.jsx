@@ -87,7 +87,7 @@ export function MemberForm(props) {
                                 <div className='col-12 col-md-6 px-2'>
                                     <div className='form-group mb-2'>
                                         <label htmlFor='website_url'>{__('website_url')}</label>
-                                        <input className="form-control" type='url' id="website_url" name="website_url" 
+                                        <input className="form-control" type='text' id="website_url" name="website_url" 
                                         value={props.useMember.website_url ?? ''} placeholder={__('website_url')}
                                         onChange={e => props.useMember.setWebsite_url(e.target.value)} 
                                         disabled={props.isDisabled}/>

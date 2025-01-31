@@ -24,9 +24,7 @@ export function MemberListView() {
 
     const handleSearchSubmit = e => {
         e.preventDefault();
-
         navigate(`?page=1&query=${search}`);
-
     }
     const init = useCallback(async () => {
         setIsLoading(true);
@@ -73,7 +71,7 @@ export function MemberListView() {
             <div className='row justify-content-end'>
                 <div className='col-12 col-md-4'>
                     <form onSubmit={handleSearchSubmit}>
-                        <div className="input-group mb-3">
+                        <div className="input-group my-3">
                             <input type="search" className="form-control" value={search} 
                             placeholder="Rechercher un membre" onChange={e => setSearch(e.target.value)}/>
                             <button className="btn btn-info" type="submit" id="button-addon2" 
@@ -85,7 +83,7 @@ export function MemberListView() {
                 </div>
             </div>
             <section>
-                <div className='container my-3'>
+                <div className='container'>
                     <Components.Loader isLoading={isLoading}>
                         <ul className='mt-4 list-unstyled row align-items-stretch'>
                             {members.map((member, index) => {
